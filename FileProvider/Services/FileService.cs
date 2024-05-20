@@ -13,7 +13,7 @@ public class FileService(DataContext context, ILogger<FileService> logger, BlobS
     private readonly DataContext _context = context;
     private readonly ILogger<FileService> _logger = logger;
     private readonly BlobServiceClient _blobClient = blobClient;
-  
+   
 
 
     public async Task SetBlobContainerAsync(string containerName)
@@ -43,22 +43,6 @@ public class FileService(DataContext context, ILogger<FileService> logger, BlobS
         return blobClient.Uri.ToString();
     }
 
-    //public async Task<string> UploadFileAsync(IFormFile file, FileEntity fileEntity)
-    //{
-    //    BlobHttpHeaders headers = new BlobHttpHeaders()
-    //    {
-    //        ContentType = file.ContentType
-    //    };
-
-    //    var blobClient =  _container.GetBlobClient(fileEntity.FileName);
-
-    //    using var stream = file.OpenReadStream();
-    //    await blobClient.UploadAsync(stream, headers);
-
-
-    //    return blobClient.Uri.ToString();
-
-    //}
 
     public async Task SaveToDatabaseAsync(FileEntity fileEntity)
     {
